@@ -10,11 +10,6 @@ const getBlockNumber = async () => {
 
     console.log(`block_number ${block_number}`);
 
-    let block = await provider.getBlock(block_number);
-    console.log(`=======================getBlockNumber===================================`);
-
-    console.log(`block ${JSON.stringify(block)}`);
-
 };
 
 const getBlock = async (block_number) => {
@@ -42,14 +37,27 @@ const getGasPrice = async () => {
 
 };
 
-setTimeout(() => {
-    getBlockNumber()
-}, 1000);
+const getCode = async (contract_address) => {
+    let codePromise = await provider.getCode(contract_address);
+
+    console.log(`===================getCode=======================================`);
+
+    console.log(`getCode`, codePromise);
+
+};
+
+// setTimeout(() => {
+//     getBlockNumber()
+// }, 1000);
 
 
 
-getBlock(781513);
+getBlock(98);
 
-getTransaction('0x4a3e33e23d15f73597c4fba04be00d4d2a9dfa9a3093f8dbfa2e33f97e48c961');
+getTransaction('0xefa4b13219aa13d980b820ec6a48bd393e2e7f7a5942f0545b9098f5322c9667');
 
-getGasPrice();
+// getGasPrice();
+
+// getCode('0x0000000000000000000000000000000000001000');
+
+getCode('0x716aa16b01afcccd4434a8295aa2e845a611cd82');
