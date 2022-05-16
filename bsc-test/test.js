@@ -10,11 +10,6 @@ const getBlockNumber = async () => {
 
     console.log(`block_number ${block_number}`);
 
-    let block = await provider.getBlock(block_number);
-    console.log(`=======================getBlockNumber===================================`);
-
-    console.log(`block ${JSON.stringify(block)}`);
-
 };
 
 const getBlock = async (block_number) => {
