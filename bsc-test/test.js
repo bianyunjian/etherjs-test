@@ -46,18 +46,46 @@ const getCode = async (contract_address) => {
 
 };
 
+
+const getValidatorStatusAtEpoch = async (validatorAddress, epoch) => {
+
+    let contract_address = '0x0000000000000000000000000000000000001000';
+    const abi = [
+        `function getValidatorStatusAtEpoch(address validatorAddress, uint64 epoch) external view returns (
+        address ownerAddress,
+        uint8 status,
+        uint256 totalDelegated,
+        uint32 slashesCount,
+        uint64 changedAt,
+        uint64 jailedBefore,
+        uint64 claimedAt,
+        uint16 commissionRate,
+        uint96 totalRewards ) `
+    ];
+    const stakingContract = new ethers.Contract(contract_address, abi, provider);
+
+
+    let result = await stakingContract.getValidatorStatusAtEpoch(validatorAddress, epoch);
+    console.log(`===================getValidatorStatusAtEpoch=======================================`);
+
+    console.log(`getValidatorStatusAtEpoch`, result);
+
+};
+
+getValidatorStatusAtEpoch('0xe357cb706a3a767300d8836420a293b58aedb525', 1)
+
 // setTimeout(() => {
 //     getBlockNumber()
 // }, 1000);
 
 
 
-getBlock(98);
+// getBlock(98);
 
-getTransaction('0xefa4b13219aa13d980b820ec6a48bd393e2e7f7a5942f0545b9098f5322c9667');
+// getTransaction('0xefa4b13219aa13d980b820ec6a48bd393e2e7f7a5942f0545b9098f5322c9667');
 
 // getGasPrice();
 
 // getCode('0x0000000000000000000000000000000000001000');
 
-getCode('0x716aa16b01afcccd4434a8295aa2e845a611cd82');
+// getCode('0x716aa16b01afcccd4434a8295aa2e845a611cd82');
