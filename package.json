@@ -10,11 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.27.2",
-    "ethers": "^5.6.5",
-    "solc": "^0.8.12",
-    "ts-node": "^10.7.0",
-    "twitter-api-v2": "^1.12.0",
-    "web3": "^1.7.0"
+    "ethers": "^5.7.1"
   }
 }
